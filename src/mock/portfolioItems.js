@@ -1,4 +1,4 @@
-const date = [{
+const portfolioItems = [{
   img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
   category: "Business Cards"
 }, {
@@ -51,4 +51,4 @@ const date = [{
   category: "Flayers"
 }];
 
-export default date;
+export default portfolioItems;
