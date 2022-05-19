@@ -8,18 +8,18 @@ class Toolbar extends Component {
     this.onSelectFilter = this.onSelectFilter.bind(this);
   }
 
-  onSelectFilter = () => {
-    this.props.onSelectFilter(this.props.selected)
+  onSelectFilter = (evt) => {
+    this.props.onSelectFilter(evt)
   }
 
   render () {
 
     const items = this.props.items;
-    //const filter = this.props.selected;
+    const filter = this.props.selected;
     
     return (
       <div className="toolbar">
-        {items.map(item => <button key={item} onClick={this.onSelectFilter} >{item}</button>)}
+        {items.map(item => <button data-name={item} key={item} onClick={this.onSelectFilter} data-filter={filter} className={item === filter ? "active" : "disactive" } >{item}</button>)}
       </div>
     );
   };
@@ -27,5 +27,3 @@ class Toolbar extends Component {
 }
 
 export default Toolbar;
-
-//{items.map(item => <button data-name={item} onClick={evt => this.onSelectFilter(evt)} key={item}>{item}</button>)}

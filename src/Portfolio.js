@@ -8,25 +8,30 @@ import filters from './mock/filters';
 class Porfolio extends Component {
 
   state = {
-    items: portfolioItems
+    items: portfolioItems,
+    selected: 'All'
   }
 
-  onSelect = (filter) => {
-    this.setState (prevState => ({items: prevState.items.map(item => {
-      if (item.category === filter) {
-        return item;
-      }
-      return item;
-    })}));
+  onClick= (evt) => {
+    let currentFilter = evt.target.getAttribute('data-name');
+    return currentFilter;
+  }
+
+  onSelect = (evt) => {
+    const currentItems = portfolioItems;
+    const currentFilter = this.onClick(evt);
+    (currentFilter !== "All" ? this.setState(prevState => ({items: currentItems.filter(item => item.category === currentFilter), selected: currentFilter})) : this.setState(prevState => ({items: portfolioItems, selected: 'All'})));
+    
   };
 
   render () {
 
     const {items} = this.state;
+    const selected = this.state.selected;
 
     return (
       <div className="container">
-        <Toolbar items = {filters} selected = {'Flayers'} onSelectFilter = {this.onSelect}/>
+        <Toolbar items = {filters} selected = {selected} onSelectFilter = {this.onSelect}/>
         <ProjectList items = {items} />
       </div>
     );
@@ -35,6 +40,3 @@ class Porfolio extends Component {
 }
 
 export default Porfolio;
-
-//let filter = evt.target.getAttribute('data-name');
-//<Toolbar items = {filters} selected = {1} onSelectFilter = {this.onSelect}/>

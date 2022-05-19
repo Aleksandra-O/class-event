@@ -10,10 +10,3 @@ function App() {
 }
 
 export default App;
-
-/*return (
-  <div className="container">
-    <ProjectList item = {date} />
-  </div>
-);
-*/

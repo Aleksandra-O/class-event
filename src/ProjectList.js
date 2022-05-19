@@ -9,7 +9,7 @@ class ProjectList extends React.Component {
     
     return (
       <div className="projectList">
-        {items.map((item, index) => <img src={item.img} alt={item.category} key={index}/>)}
+        {items.map((item, index) => <img src={item.img} alt={item.category} key={index} className="picture" />)}
       </div>
     );
   };
